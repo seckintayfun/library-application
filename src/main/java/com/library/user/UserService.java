@@ -1,5 +1,6 @@
 package com.library.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -7,18 +8,22 @@ import java.util.List;
 
 @Service
 public class UserService {
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     public List<User> getAllUsersBorrowedBook() {
-        // TODO
-        return null;
+        return this.userRepository.getAllUsersBorrowedBook();
     }
 
     public List<User> getAllNonTerminatedUsersNotBorrowedBook() {
-        // TODO
-        return null;
+        return this.userRepository.getAllNonTerminatedUsersNotBorrowedBook();
     }
 
     public List<User> getAllUsersBorrowedBookOnDate(Date date) {
-        // TODO
-        return null;
+        return this.userRepository.getAllUsersBorrowedBookOnDate(date);
     }
 }

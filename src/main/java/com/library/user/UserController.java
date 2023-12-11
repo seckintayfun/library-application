@@ -22,17 +22,17 @@ public class UserController {
 
     @GetMapping("/borrowed")
     public List<User> getAllUsersBorrowedBook() {
-        return userService.getAllUsersBorrowedBook();
+        return this.userService.getAllUsersBorrowedBook();
     }
 
     @GetMapping("/notborrowed")
     public List<User> getAllNonTerminatedUsersNotBorrowedBook() {
-        return userService.getAllNonTerminatedUsersNotBorrowedBook();
+        return this.userService.getAllNonTerminatedUsersNotBorrowedBook();
     }
 
     @GetMapping("/borrowed/{date}")
     public List<User> getAllUsersBorrowedBookOnDate(@PathVariable(name = "date")
                                                     @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
-        return userService.getAllUsersBorrowedBookOnDate(date);
+        return this.userService.getAllUsersBorrowedBookOnDate(date);
     }
 }
