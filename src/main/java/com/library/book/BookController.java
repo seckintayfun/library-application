@@ -26,11 +26,11 @@ public class BookController {
                                                            @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
                                                            @PathVariable(name = "to")
                                                            @DateTimeFormat(pattern = "yyyy-MM-dd") Date to) {
-        return bookService.getAllBooksBorrowedByUserOnDateRange(userId, from, to);
+        return this.bookService.getAllBooksBorrowedByUserOnDateRange(userId, from, to);
     }
 
     @GetMapping("/notborrowed")
     public List<Book> getAllBooksNotBorrowed() {
-        return bookService.getAllBooksNotBorrowed();
+        return this.bookService.getAllBooksNotBorrowed();
     }
 }
